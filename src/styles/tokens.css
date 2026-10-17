@@ -1,0 +1,102 @@
+:root {
+  /* ============================================================
+     CIFRA — Tokens y atmósfera visual
+     ============================================================ */
+
+  /* Colores estructurales: Azul tinta y azul medianoche profundo */
+  --color-bg: #080d19;
+  --color-bg-secondary: #0d1424;
+  --color-surface: #11182c;
+  --color-surface-elevated: #162038;
+  --color-surface-hover: #1b2744;
+  --color-surface-subtle: rgba(255, 255, 255, 0.03);
+
+  /* Puntos de luz: Amarillo viejo y dorado apagado */
+  --color-primary: #e5b758;
+  --color-primary-hover: #f2c972;
+  --color-primary-active: #d4a242;
+  --color-primary-muted: rgba(229, 183, 88, 0.14);
+  --color-primary-glow: rgba(229, 183, 88, 0.22);
+  --color-gold-leaf: #f7e6bd;
+
+  /* Tonos secundarios: Lavanda grisácea y noche velada */
+  --color-secondary: #1a233a;
+  --color-secondary-hover: #222d48;
+  --color-lavender: #9aa3be;
+  --color-lavender-dim: #6b738e;
+  --color-lavender-glow: rgba(154, 163, 190, 0.12);
+
+  /* Papel cálido y texto nocturno */
+  --color-text: #f5f0e6;
+  --color-text-muted: #939cb5;
+  --color-text-dim: #636b85;
+  --color-text-inverse: #f5f0e6;
+
+  /* Estados financieros coherentes con la atmósfera */
+  --color-success: #6ec79b;
+  --color-success-bg: rgba(110, 199, 155, 0.12);
+  --color-success-border: rgba(110, 199, 155, 0.28);
+
+  --color-danger: #e07a7a;
+  --color-danger-bg: rgba(224, 122, 122, 0.12);
+  --color-danger-border: rgba(224, 122, 122, 0.28);
+
+  --color-warning: #e5a953;
+  --color-warning-bg: rgba(229, 169, 83, 0.12);
+  --color-warning-border: rgba(229, 169, 83, 0.3);
+
+  /* Bordes y filigranas */
+  --color-border: #202b44;
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-highlight: rgba(229, 183, 88, 0.28);
+
+  /* Tipografía */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-family:
+    "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --font-sans: var(--font-family);
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.65rem;
+  --font-size-2xl: 2.25rem;
+
+  /* Espaciado */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  /* Bordes y radios */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+  --radius-pill: 9999px;
+
+  /* Sombras y profundidad atmosférica */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-card:
+    0 12px 32px -6px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-card-hover:
+    0 18px 40px -8px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(229, 183, 88, 0.22);
+  --shadow-centerpiece:
+    0 20px 50px -10px rgba(0, 0, 0, 0.75),
+    0 0 35px -8px rgba(229, 183, 88, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  --shadow-dialog:
+    0 30px 80px -15px rgba(0, 0, 0, 0.9),
+    0 0 45px -10px rgba(229, 183, 88, 0.18),
+    inset 0 1px 0 rgba(229, 183, 88, 0.35);
+  --shadow-glow: 0 0 20px rgba(229, 183, 88, 0.25);
+}

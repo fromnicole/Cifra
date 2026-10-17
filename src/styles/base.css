@@ -1,0 +1,113 @@
+/* Evita cálculos inesperados de tamaño */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Base del documento con atmósfera cifra */
+html {
+  min-height: 100%;
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(36, 54, 94, 0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(22, 33, 60, 0.5) 0%, transparent 60%),
+    radial-gradient(circle at 10% 40%, rgba(229, 183, 88, 0.035) 0%, transparent 40%),
+    #080d19;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Barra de desplazamiento con tono de medianoche */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080d19;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid #080d19;
+  border-radius: 4px;
+  background: #1f2c47;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Selección de texto en oro viejo y tinta */
+::selection {
+  background-color: var(--color-primary);
+  color: #080d19;
+}
+
+/* Los controles heredan la tipografía */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* Comportamiento de los botones */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* Evita desbordamientos de imágenes y gráficos */
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Evita que los campos superen su contenedor */
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+/* Accesibilidad: foco visible con halo de oro viejo */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  box-shadow: 0 0 12px rgba(229, 183, 88, 0.35);
+}
+
+/* Preferencia por menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
