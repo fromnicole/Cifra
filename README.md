@@ -242,7 +242,3 @@ npm run preview
 ```
 
 Los archivos finales se generan en la carpeta `dist/`.
-
----
-
-**Cifra** — Una forma más sencilla de organizar tus finanzas. 💜
