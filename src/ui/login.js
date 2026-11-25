@@ -170,7 +170,7 @@ export function renderLogin(
     const forgotButton = app.querySelector("#forgot-password-button");
 
     toggleButton.addEventListener("click", () => {
-      mode = "login";
+      mode = "signup";
       render();
     });
 
