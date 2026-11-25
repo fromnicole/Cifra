@@ -571,12 +571,15 @@ textarea {
   text-decoration: none;
 }
 
-.brand-mark {
-  display: block;
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+.brand img.brand-mark {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .brand span:last-child {
