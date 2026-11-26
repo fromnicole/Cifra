@@ -8,8 +8,12 @@ export function renderLogin(
   onLogin,
   onSignUp = null,
   onPasswordReset = null,
+  options = {},
 ) {
   let mode = "login";
+
+  let initialMessage = options.message || "";
+  let initialEmail = options.email || "";
 
   // Renderiza el modo actual y enlaza sus eventos después de reemplazar el HTML.
   function render() {
@@ -166,6 +170,20 @@ export function renderLogin(
     const errorMessage = app.querySelector("#login-error");
     const successMessage = app.querySelector("#login-success");
     const submitButton = app.querySelector("#login-submit");
+
+    const emailInput = app.querySelector('input[name="email"]');
+
+    if (initialEmail) {
+      emailInput.value = initialEmail;
+      initialEmail = "";
+    }
+
+    if (initialMessage) {
+      successMessage.textContent = initialMessage;
+      successMessage.hidden = false;
+      initialMessage = "";
+    }
+
     const toggleButton = app.querySelector("#auth-mode-toggle");
     const forgotButton = app.querySelector("#forgot-password-button");
 

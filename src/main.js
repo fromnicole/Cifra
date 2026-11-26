@@ -67,6 +67,9 @@ let bills = [];
 let recurrences = [];
 let currentView = "inicio";
 
+// Correo pendiente de confirmación en otra pestaña.
+let pendingSignupEmail = null;
+
 // Filtros de la lista de movimientos.
 const movementFilters = {
   search: "",
@@ -305,9 +308,14 @@ async function handleSignUp({ email, password }) {
 
   // Si Supabase creó una sesión, podemos entrar directamente.
   if (data.session) {
+    pendingSignupEmail = null;
     await loadAndRenderDashboard();
     return null;
   }
+
+  // Guardamos el correo para reconocer su confirmación
+  // cuando Supabase sincronice la autenticación entre pestañas.
+  pendingSignupEmail = email.trim().toLowerCase();
 
   // Si la confirmación por correo está activada, no habrá sesión todavía.
   return {
@@ -1907,5 +1915,37 @@ async function initializeApp() {
     renderLogin(app, handleLogin, handleSignUp, handlePasswordReset);
   }
 }
+
+// ============================================================
+// CONFIRMACIÓN DE CORREO ENTRE PESTAÑAS
+// ============================================================
+
+supabase.auth.onAuthStateChange((event, session) => {
+  // Solo nos interesa un inicio de sesión detectado
+  // mientras esperamos la confirmación de un registro.
+  if (event !== "SIGNED_IN") return;
+  if (!pendingSignupEmail || !session?.user) return;
+
+  const confirmedEmail = session.user.email?.trim().toLowerCase();
+
+  const isEmailConfirmed = Boolean(
+    session.user.email_confirmed_at || session.user.confirmed_at,
+  );
+
+  // Comprobamos que corresponda a la cuenta que se registró
+  // y que su correo efectivamente esté confirmado.
+  if (confirmedEmail !== pendingSignupEmail || !isEmailConfirmed) {
+    return;
+  }
+
+  // La confirmación fue detectada.
+  pendingSignupEmail = null;
+
+  // Mostramos el inicio de sesión en la pestaña original.
+  renderLogin(app, handleLogin, handleSignUp, handlePasswordReset, {
+    message: "¡Correo confirmado! Ya puedes iniciar sesión.",
+    email: session.user.email,
+  });
+});
 
 initializeApp();
